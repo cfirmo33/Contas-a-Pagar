@@ -10,11 +10,11 @@
 			$scope.appname = "Contas A Pagar";
 			$scope.despesas = [
         {emissao: new Date('2017-12-03'), descricao: 'Energia Elétrica', valor: 200, vencimento: new Date('2018-01-03')},
-				{emissao: new Date('2017-12-05'), descricao: 'Devmedia', valor: 59,90, vencimento: new Date('2018-01-03')},
+				{emissao: new Date('2017-12-05'), descricao: 'Devmedia', valor: 59.90, vencimento: new Date('2018-01-03')},
 				{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03')},
 				{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03')},
 			];
-		});
+		};
 	</script>
 
 	<title>Sistema de Contas A Pagar</title>
@@ -29,17 +29,6 @@
 	</header>
 	<main>
 		<table>
-
-			<th>Emissão</th>
-			<th>Descricão</th>
-			<th>Valor</th>
-			<th>Vencimento</th>
-			<tr ng-repeat="despesa in despesas">
-			<td>{{despesa.emissao}}</td>
-			<td>{{despesa.descricao}}</td>
-			<td>{{despesa.valor}}</td>
-			<td>{{despesa.vencimento}}</td>
-</tr>
 			<thead>
 				<tr>
 					<th>Emissão</th>
@@ -57,7 +46,6 @@
 					<td>{{despesa.vencimento}}</td>
 				</tr>
 			</tbody>
-
 		</table>
 	</main>
 	
