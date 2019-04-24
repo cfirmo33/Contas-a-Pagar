@@ -18,7 +18,7 @@
 				{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03')},
 				{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03')},
 			];
-		};
+			}]);
 	</script>
 	<title>Sistema de Contas A Pagar</title>
 </head>
@@ -28,32 +28,21 @@
 		<nav>
 			<p>Menu de Navegacão</p>
 		</nav>
-		<h2 ng-bind="appname"></h2>
 	</header>
 	<main>
 		<table>
 			<thead>
 				<tr>
 					<th>Emissão</th>
-					<th>Descricão</th>
-					<th>Valor</th>
-					<th>Vencimento</th>
 				</tr>
 			</thead>
 			
 			<tbody>
 				<tr ng-repeat="despesa in despesas">
 					<td>{{despesa.emissao}}</td>
-					<td>{{despesa.descricao}}</td>
-					<td>{{despesa.valor}}</td>
-					<td>{{despesa.vencimento}}</td>
 				</tr>
 			</tbody>
 		</table>
 	</main>
-	
-	<footer>
-			
-	</footer>
 </body>
 </html>
