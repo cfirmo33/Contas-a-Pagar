@@ -1,133 +1,137 @@
-					<!DOCTYPE html>
-					<html ng-app="AppCAP">
-					<head>
-						<meta charset="utf-8">
-						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
-						<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-						    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+						<!DOCTYPE html>
+						<html ng-app="AppCAP">
+						<head>
+							<meta charset="utf-8">
+							<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+							<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+							    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-						<script>
-					    var app = angular.module("AppCAP", []);
-					        
-							app.controller("AppCAPCtrl", ['$scope', function ($scope) {
-								$scope.appname = "Contas A Pagar";
-								$scope.company = "Grupo Brasil Mobile";
-								$scope.despesas = [
+							<script>
+						    var app = angular.module("AppCAP", []);
+						        
+								app.controller("AppCAPCtrl", ['$scope', function ($scope) {
+									$scope.appname = "Contas A Pagar";
+									$scope.company = "Grupo Brasil Mobile";
+									$scope.despesas = [
 
-					        {emissao: new Date('2017-12-03'), descricao: 'Energia Elétrica', valor: 200, vencimento: new Date('2018-01-03')},
+						        {emissao: new Date('2017-12-03'), descricao: 'Energia Elétrica', valor: 200, vencimento: new Date('2018-01-03')},
 
-									{emissao: new Date('2017-12-03'), descricao: 'Aluguel', valor: 200, vencimento: new Date('2018-01-03')},
-									{emissao: new Date('2017-12-05'), descricao: 'Devmedia', valor: 59.90, vencimento: new Date('2018-01-03')},
-									{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03')},
-									{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03')},
-								];
-                             $scope.categorias = [
-                                {nome:'Despesas Operacionais',codigo:1},
-                                {nome:'Despesas Financeiras',codigo:2},
-                                {nome:'Custo do servico prestado',codigo:3},                                
-                                {nome:'Despesas Pessoais',codigo:4},
-                             ];
-
-
-
-								$scope.adicionarDespesa = function(despesa) {
-									$scope.despesas.push(angular.copy(despesa));
-								}
-								}]);
-						
-						</script>
-						<style type="text/css">
-							.bloco {
-								width: 600px;
-								margin-right:auto;
-								margin-left: auto; 							
-							}
-							.form-control {
-								margin-bottom: 5px;
-							}
-						</style>
-						<title>Sistema de Contas A Pagar</title>
-					</head>
-						
-					<body ng-controller="AppCAPCtrl">
-							<div class="bloco">
-	<header>
-				
-							<nav>
-						    <p>Menu de Navegacão</p>
-							</nav>
-														<h1 ng-bind="company"></h1>
-
-							<h2>Cadastro de contas a pagar</h2>
-						</header>
-						<main>
-							<section>
-													
-							</table>
-							<div class="row">
-								<div class="col-md-4">
-									<label for="emissao_id">Data Emissão:</label>
-							<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao">
-								</div>
-								<div class="col-md-8">
-
-												<label for="desc_id">Descricao:</label>
-
-							<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao">
-								</div>
-							<div class="col-md-12">
-							<label for="categoria_id">Categoria:</label>
-
-<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome for categoria in categorias" id="categoria_id">
-	<option value="">Selecione uma categoria </option>
-	
-</select>
-						</div>
-						<div class="col-md-4">
-
-											<label for="val_id">Valor:</label>
-
-							<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor">
-						</div>	
-						<div class="col-md-8">
-							<label for="venc_id">Data Vencimento:</label>
-
-							<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento">
-						</div>
-<div class="col-md-12">
-	<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
-</div>
-
-												
-			
-		</div>
-				<table class="table table-striped" style="margin-top:10px;">
-
-								<thead>
-									<tr>
-										<th>Emissão</th>
-																	<th>Descricao</th>
-
-										<th>Valor</th>
-																	<th>Vencimento</th>
+										{emissao: new Date('2017-12-03'), descricao: 'Aluguel', valor: 200, vencimento: new Date('2018-01-03')},
+										{emissao: new Date('2017-12-05'), descricao: 'Devmedia', valor: 59.90, vencimento: new Date('2018-01-03')},
+										{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03')},
+										{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03')},
+									];
+	                             $scope.categorias = [
+	                                {nome:'Despesas Operacionais',codigo:1},
+	                                {nome:'Despesas Financeiras',codigo:2},
+	                                {nome:'Custo do servico prestado',codigo:3},                                
+	                                {nome:'Despesas Pessoais',codigo:4},
+	                             ];
 
 
-									</tr>
-								</thead>
-								
-								<tbody>
-									<tr ng-repeat="despesa in despesas">
-										<td>{{despesa.emissao | date:'dd/MM/yyyy' }}</td>				
-										<td>{{despesa.descricao}}</td>
-									    <td>{{despesa.valor | currency:"R$ " }}</td>
-									    <td>{{despesa.vencimento | date:'dd/MM/yyyy' }}</td>
-									</tr>
-								</tbody>
-			</div>
-		</section>
-						</main>
-						<footer>
+
+									$scope.adicionarDespesa = function(despesa) {
+										$scope.despesas.push(angular.copy(despesa));
+									}
+									}]);
 							
-						</footer>
-					</body>
-				</html>
+							</script>
+							<style type="text/css">
+								.bloco {
+									width: 600px;
+									margin-right:auto;
+									margin-left: auto; 							
+								}
+								.form-control {
+									margin-bottom: 5px;
+								}
+							</style>
+							<title>Sistema de Contas A Pagar</title>
+						</head>
+							
+						<body ng-controller="AppCAPCtrl">
+								<div class="bloco">
+		<header>
+					
+								<nav>
+							    <p>Menu de Navegacão</p>
+								</nav>
+															<h1 ng-bind="company"></h1>
+
+								<h2>Cadastro de contas a pagar</h2>
+							</header>
+							<main>
+								<section>
+														
+								</table>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="emissao_id">Data Emissão:</label>
+								<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao">
+									</div>
+									<div class="col-md-8">
+
+													<label for="desc_id">Descricao:</label>
+
+								<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao">
+									</div>
+								<div class="col-md-12">
+								<label for="categoria_id">Categoria:</label>
+
+	<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome for categoria in categorias" id="categoria_id">
+		<option value="">Selecione uma categoria </option>
+		
+	</select>
+							</div>
+							<div class="col-md-4">
+
+												<label for="val_id">Valor:</label>
+
+								<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor">
+							</div>	
+							<div class="col-md-8">
+								<label for="venc_id">Data Vencimento:</label>
+
+								<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento">
+							</div>
+	<div class="col-md-12">
+		<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
+	</div>
+
+													
+				
+			</div>
+					<table class="table table-striped" style="margin-top:10px;">
+
+									<thead>
+										<tr>
+											<th>Emissão</th>
+																		<th>Descricao</th>
+																													<th>Categoria</th>
+
+
+											<th>Valor</th>
+																		<th>Vencimento</th>
+
+
+										</tr>
+									</thead>
+									
+									<tbody>
+										<tr ng-repeat="despesa in despesas">
+											<td>{{despesa.emissao | date:'dd/MM/yyyy' }}</td>				
+											<td>{{despesa.descricao}}</td>
+																						<td>{{despesa.categoria.nome}}</td>
+
+										    <td>{{despesa.valor | currency:"R$ " }}</td>
+										    <td>{{despesa.vencimento | date:'dd/MM/yyyy' }}</td>
+										</tr>
+									</tbody>
+				</div>
+			</section>
+							</main>
+							<footer>
+								
+							</footer>
+						</body>
+					</html>
