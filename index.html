@@ -18,8 +18,8 @@
 								{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03')},
 								{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03')},
 							];
-							$scope.adicionarDespesa = function() {
-								alert('ok');
+							$scope.adicionarDespesa = function(despesa) {
+								$scope.despesas.push(angular.copy(despesa));
 							}
 							}]);
 					
@@ -67,7 +67,7 @@
 											<label for="venc_id">Data Vencimento</label>
 
 						<input type="text" name="" id="venc_id" ng-model="despesa.vencimento">
-		<button ng-click="adicionarDespesa()">Adicionar nova despesa</button>
+		<button ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
 		{{despesa}}
 					</main>
 					<footer>
