@@ -7,23 +7,24 @@
 	<script>
 		angular.module("AppCAP", []);
 		angular.module("AppCAP").controller("AppCAPCtrl"), function ($scope) {
-			// body...
+			$scope.appname = "Contas A Pagar";
 		});
 	</script>
 
 	<title>Sistema de Contas A Pagar</title>
 </head>
-<body>
+<body ng-controller="AppCAPCtrl">
 	<header>
 		<nav>
 			<p>Menu de Navegacão</p>
 		</nav>
+		<h2 ng-bind="appname"></h2>
 	</header>
 	<main>
-		<footer>
+		
+	</main>
+<footer>
 			
 		</footer>
-	</main>
-
 </body>
 </html>
