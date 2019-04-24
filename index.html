@@ -21,6 +21,15 @@
 									{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03')},
 									{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03')},
 								];
+                             $scope.categorias = [
+                                {nome:'Despesas Operacionais',codigo:1},
+                                {nome:'Despesas Financeiras',codigo:2},
+                                {nome:'Custo do servico prestado',codigo:3},                                
+                                {nome:'Despesas Pessoais',codigo:4},
+                             ];
+
+
+
 								$scope.adicionarDespesa = function(despesa) {
 									$scope.despesas.push(angular.copy(despesa));
 								}
@@ -53,7 +62,46 @@
 						</header>
 						<main>
 							<section>
-														<table class="table table-striped">
+													
+							</table>
+							<div class="row">
+								<div class="col-md-4">
+									<label for="emissao_id">Data Emissão:</label>
+							<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao">
+								</div>
+								<div class="col-md-8">
+
+												<label for="desc_id">Descricao:</label>
+
+							<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao">
+								</div>
+							<div class="col-md-12">
+							<label for="categoria_id">Categoria:</label>
+
+<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome for categoria in categorias" id="categoria_id">
+	<option value="">Selecione uma categoria </option>
+	
+</select>
+						</div>
+						<div class="col-md-4">
+
+											<label for="val_id">Valor:</label>
+
+							<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor">
+						</div>	
+						<div class="col-md-8">
+							<label for="venc_id">Data Vencimento:</label>
+
+							<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento">
+						</div>
+<div class="col-md-12">
+	<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
+</div>
+
+												
+			
+		</div>
+				<table class="table table-striped" style="margin-top:10px;">
 
 								<thead>
 									<tr>
@@ -75,20 +123,6 @@
 									    <td>{{despesa.vencimento | date:'dd/MM/yyyy' }}</td>
 									</tr>
 								</tbody>
-							</table>
-							<label for="emissao_id">Data Emissão:</label>
-							<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao">
-												<label for="desc_id">Descricao:</label>
-
-							<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao">
-												<label for="val_id">Valor:</label>
-
-							<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor">
-												<label for="venc_id">Data Vencimento:</label>
-
-							<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento">
-			<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
-			{{despesa}}
 			</div>
 		</section>
 						</main>
