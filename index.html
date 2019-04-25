@@ -14,10 +14,10 @@
 									$scope.company = "Grupo Brasil Mobile";
 									$scope.despesas = [
 						        {emissao: new Date('2017-12-03'), descricao: 'Energia Elétrica', valor: 200, vencimento: new Date('2018-01-03'), status_cor:'#90EE90'},
-										{emissao: new Date('2017-12-03'), descricao: 'Aluguel', valor: 200, vencimento: new Date('2018-01-03'), status_cor: 'yellow'},
-										{emissao: new Date('2017-12-05'), descricao: 'Devmedia', valor: 59.90, vencimento: new Date('2018-01-03'), status_cor: 'gray'},
-										{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03'), status_cor: 'yellow'},
-										{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03'), status_cor: 'gray'},
+										{emissao: new Date('2017-12-03'), descricao: 'Aluguel', valor: 200, vencimento: new Date('2018-01-03'), status_cor: '#FF9'},
+										{emissao: new Date('2017-12-05'), descricao: 'Devmedia', valor: 59.90, vencimento: new Date('2018-01-03'), status_cor: '#CCC'},
+										{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03'), status_cor: '#FF9'},
+										{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03'), status_cor: '#CCC'},
 
 									];
 	                             $scope.categorias = [
@@ -49,6 +49,9 @@
 									box-shadow: 0 0 4px white;
 									margin-right: auto;
 									margin-left: auto;
+								}
+								.marcada {
+									background-color:  #f0ffff;
 								}
 							</style>
 							<title>Sistema de Contas A Pagar</title>
@@ -124,7 +127,8 @@
 									</thead>
 									
 									<tbody>
-										<tr ng-repeat="despesa in despesas">
+										<tr ng-repeat="despesa in despesas" class="marcada">
+											<td><input type="checkbox" name=""></td>
 											<td>{{despesa.emissao | date:'dd/MM/yyyy' }}</td>				
 											<td>{{despesa.descricao}}</td>
 																						<td>{{despesa.categoria.nome}}</td>
