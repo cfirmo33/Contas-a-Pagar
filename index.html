@@ -1,4 +1,4 @@
-				<!DOCTYPE html>
+<!DOCTYPE html>
 						<html ng-app="AppCAP">
 						<head>
 							<meta charset="utf-8">
@@ -18,7 +18,6 @@
 										{emissao: new Date('2017-12-05'), descricao: 'Devmedia', valor: 59.90, vencimento: new Date('2018-01-03'), status_cor: '#CCC'},
 										{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03'), status_cor: '#FF9'},
 										{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03'), status_cor: '#CCC'},
-
 									];
 	                             $scope.categorias = [
 	                                {nome:'Despesas Operacionais',codigo:1,grupo: 'Despesas'},
@@ -28,6 +27,16 @@
 	                             ];
 									$scope.adicionarDespesa = function(despesa) {
 										$scope.despesas.push(angular.copy(despesa));
+									}
+									$scope.temMarcada = function (despesas) {
+										return despesas.some(function(despesa) {
+											return despesas.deletar;
+										})
+									}
+									$scope.deletarDespesa = function (despesas) {
+										$scope.despesas = despesas.filter(function (despesa) {
+											if despesa.deletar return despesa;
+										})
 									}
 									}]);
 							
@@ -56,9 +65,7 @@
 								.col-md-4 {
 									margin-right: auto;
 									margin-left: auto;
-									padding-top: 10px;
-									padding-bottom: 20px;
-									
+									padding-bottom: 10px;									
 								}
 								.col-md-4 {
 									margin-right: auto;
@@ -118,7 +125,7 @@
 	</div>
 							</div>
 	<div class="col-md-4">
-		<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesa)">Deletar despesa</button>
+		<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesa)" ng-show="temMarcada()">Deletar despesa</button>
 	</div>
 
 
