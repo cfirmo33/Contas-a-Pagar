@@ -1,4 +1,4 @@
-						<!DOCTYPE html>
+				<!DOCTYPE html>
 						<html ng-app="AppCAP">
 						<head>
 							<meta charset="utf-8">
@@ -13,24 +13,18 @@
 									$scope.appname = "Contas A Pagar";
 									$scope.company = "Grupo Brasil Mobile";
 									$scope.despesas = [
-
 						        {emissao: new Date('2017-12-03'), descricao: 'Energia Elétrica', valor: 200, vencimento: new Date('2018-01-03')},
-
 										{emissao: new Date('2017-12-03'), descricao: 'Aluguel', valor: 200, vencimento: new Date('2018-01-03')},
 										{emissao: new Date('2017-12-05'), descricao: 'Devmedia', valor: 59.90, vencimento: new Date('2018-01-03')},
 										{emissao: new Date('2017-12-08'), descricao: 'IPTU', valor: 20, vencimento: new Date('2018-01-03')},
 										{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03')},
 									];
 	                             $scope.categorias = [
-	                                {nome:'Despesas Operacionais',codigo:1, grupo: 'Despesas'},
-	                                {nome:'Despesas Financeiras',codigo:2, grupo: 'Despesas'}	                                \
-	                                {nome:'Custo do servico prestado',codigo:3, grupo: 'Custos'},                                
-	                                {nome:'Despesas Pessoais',codigo:4, grupo: 'Despesas'},
-	                              
+	                                {nome:'Despesas Operacionais',codigo:1,grupo: 'Despesas'},
+	                                {nome:'Despesas Financeiras',codigo:2,grupo: 'Despesas'},
+	                                {nome:'Custo do servico prestado',codigo:3,grupo: 'Custos'},                                
+	                                {nome:'Despesas Pessoais',codigo:4,grupo: 'Despesas'},
 	                             ];
-
-
-
 									$scope.adicionarDespesa = function(despesa) {
 										$scope.despesas.push(angular.copy(despesa));
 									}
@@ -45,6 +39,12 @@
 								}
 								.form-control {
 									margin-bottom: 5px;
+								}
+								.circulo {
+									width: 10px;
+									height: 10px;
+									border-radius: 5px;
+									background-color: green;
 								}
 							</style>
 							<title>Sistema de Contas A Pagar</title>
@@ -79,7 +79,7 @@
 								<div class="col-md-12">
 								<label for="categoria_id">Categoria:</label>
 
-	<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome group by cate.Grupo  for categoria in categorias" id="categoria_id">
+	<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome group by categoria.grupo  for categoria in categorias" id="categoria_id">
 		<option value="">Selecione uma categoria </option>
 		
 	</select>
@@ -122,10 +122,11 @@
 										<tr ng-repeat="despesa in despesas">
 											<td>{{despesa.emissao | date:'dd/MM/yyyy' }}</td>				
 											<td>{{despesa.descricao}}</td>
-																						<td>{{despesa.categoria}}</td>
+																						<td>{{despesa.categoria.nome}}</td>
 
 										    <td>{{despesa.valor | currency:"R$ " }}</td>
 										    <td>{{despesa.vencimento | date:'dd/MM/yyyy' }}</td>
+										    <td><div class="circulo"></td>
 										</tr>
 									</tbody>
 				</div>
