@@ -51,7 +51,18 @@
 									margin-left: auto;
 								}
 								.marcada {
-									background-color:  #f0ffff;
+									background-color:  #f0ffff !important;
+								}
+								.col-md-4 {
+									margin-right: auto;
+									margin-left: auto;
+									padding-top: 10px;
+									padding-bottom: 20px;
+									
+								}
+								.col-md-4 {
+									margin-right: auto;
+									margin-left: auto;
 								}
 							</style>
 							<title>Sistema de Contas A Pagar</title>
@@ -102,9 +113,14 @@
 
 								<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento">
 							</div>
-	<div class="col-md-12">
+	<div class="col-md-4">
 		<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
 	</div>
+							</div>
+	<div class="col-md-4">
+		<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesa)">Deletar despesa</button>
+	</div>
+
 
 													
 				
@@ -127,8 +143,8 @@
 									</thead>
 									
 									<tbody>
-										<tr ng-repeat="despesa in despesas" class="marcada">
-											<td><input type="checkbox" name=""></td>
+										<tr  ng-repeat="despesa in despesas" ng-class="{marcada: despesa.deletar}">
+											<td><input type="checkbox" name="" ng-model="despesa.deletar"></td>
 											<td>{{despesa.emissao | date:'dd/MM/yyyy' }}</td>				
 											<td>{{despesa.descricao}}</td>
 																						<td>{{despesa.categoria.nome}}</td>
