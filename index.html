@@ -11,7 +11,7 @@
 						        
 								app.controller("AppCAPCtrl", ['$scope', function ($scope) {
 									$scope.appname = "Contas A Pagar";
-									$scope.company = "Grupo Brasil Mobile";
+									$scope.company = "Contas A Receber";
 									$scope.despesas = [
 						        {emissao: new Date('2017-12-03'), descricao: 'Energia Elétrica', valor: 200, vencimento: new Date('2018-01-03'), status_cor:'#90EE90'},
 										{emissao: new Date('2017-12-03'), descricao: 'Aluguel', valor: 200, vencimento: new Date('2018-01-03'), status_cor: '#FF9'},
@@ -31,12 +31,12 @@
 									$scope.temMarcada = function (despesas) {
 										return despesas.some(function(despesa) {
 											return despesas.deletar;
-										})
+										});
 									}
 									$scope.deletarDespesa = function (despesas) {
 										$scope.despesas = despesas.filter(function (despesa) {
-											if despesa.deletar return despesa;
-										})
+											if (despesa.deletar) return despesa;
+										});
 									}
 									}]);
 							
@@ -77,15 +77,10 @@
 							
 						<body ng-controller="AppCAPCtrl">
 								<div class="bloco">
-		<header>
-					
-								<nav>
-							    <p>Menu de Navegacão</p>
-								</nav>
-															<h1 ng-bind="company"></h1>
+									<div ng-include="'header.html'"></div>
 
+							
 								<h2>Cadastro de contas a pagar</h2>
-							</header>
 							<main>
 								<section>
 														
