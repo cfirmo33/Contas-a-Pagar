@@ -131,7 +131,8 @@
 
 										    <td>{{despesa.valor | currency:"R$ " }}</td>
 										    <td>{{despesa.vencimento | date:'dd/MM/yyyy' }}</td>
-										    <td><div class="circulo" ng-style="{'background-color: despesa.status_cor}"></td>
+										    <td><div class="circulo" ng-style="{'background-color'
+										    	: despesa.status_cor}"></td>
 										</tr>
 									</tbody>
 				</div>
