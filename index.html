@@ -22,10 +22,11 @@
 										{emissao: new Date('2017-12-07'), descricao: 'Telefone', valor: 100, vencimento: new Date('2018-01-03')},
 									];
 	                             $scope.categorias = [
-	                                {nome:'Despesas Operacionais',codigo:1},
-	                                {nome:'Despesas Financeiras',codigo:2},
-	                                {nome:'Custo do servico prestado',codigo:3},                                
-	                                {nome:'Despesas Pessoais',codigo:4},
+	                                {nome:'Despesas Operacionais',codigo:1, grupo: 'Despesas'},
+	                                {nome:'Despesas Financeiras',codigo:2, grupo: 'Despesas'}	                                \
+	                                {nome:'Custo do servico prestado',codigo:3, grupo: 'Custos'},                                
+	                                {nome:'Despesas Pessoais',codigo:4, grupo: 'Despesas'},
+	                              
 	                             ];
 
 
@@ -78,7 +79,7 @@
 								<div class="col-md-12">
 								<label for="categoria_id">Categoria:</label>
 
-	<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome for categoria in categorias" id="categoria_id">
+	<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome group by cate.Grupo  for categoria in categorias" id="categoria_id">
 		<option value="">Selecione uma categoria </option>
 		
 	</select>
@@ -121,7 +122,7 @@
 										<tr ng-repeat="despesa in despesas">
 											<td>{{despesa.emissao | date:'dd/MM/yyyy' }}</td>				
 											<td>{{despesa.descricao}}</td>
-																						<td>{{despesa.categoria.nome}}</td>
+																						<td>{{despesa.categoria}}</td>
 
 										    <td>{{despesa.valor | currency:"R$ " }}</td>
 										    <td>{{despesa.vencimento | date:'dd/MM/yyyy' }}</td>
