@@ -35,14 +35,14 @@
 
 
 			
-			$scope.temMarcada = function (despesas) {
+			$scope.temMarcada = function(despesas) {
 				return despesas.some(function(despesa) {
 					return despesas.deletar;
 				});
 			}
 			
-			$scope.deletarDespesa = function (despesas) {
-				$scope.despesas = despesas.filter(function (despesa) {
+			$scope.deletarDespesa = function(despesas) {
+				$scope.despesas = despesas.filter(function(despesa) {
 					if (despesa.deletar) return despesa;
 				});
 			}
@@ -75,10 +75,7 @@
 			margin-left: auto;
 			padding-bottom: 10px;									
 		}
-		.col-md-4 {
-			margin-right: auto;
-			margin-left: auto;
-		}
+		
 	</style>
 	<title>Sistema de Contas A Pagar</title>
 </head>
@@ -87,7 +84,7 @@
 	<div class="bloco">  
 		<div ng-include="'header.html'"></div>
 			
-		<h2>Cadastro de contas a pagar</h2>
+		<h2 class="lead">Cadastro de contas a pagar</h2>
 
 		<main>
 			<section>
