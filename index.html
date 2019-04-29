@@ -90,36 +90,9 @@
 	"'header.html'"
 	>
 		<main>
-			<section class =
-			"crud">
-
-			</section>
-						<section class="grid">
-					
-						</section>
-
-		</main>
-		<footer></footer>
-	</header>
-</div>
-
-
-
-
-
-
-
-
-
-
-	<div class="bloco">  
-		<div></div>
-			
-		<h2>Cadastro de contas a pagar</h2>
-
-		<main>
+			<section class ="crud">
 			<section>
-				<div class="row">
+<div class="row">
 					<div class="col-md-4">
 						<label for="emissao_id">Data Emissão:</label>
 						<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao">
@@ -156,8 +129,28 @@
 				<div class="col-md-4">
 					<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesa)" ng-show="temMarcada()">Deletar despesa</button>
 				</div>
-						<table class="table table-striped" style="margin-top:10px;">
-					<thead>
+					</section>
+							<section class="grid">
+
+</section>
+
+		</main>
+		<footer></footer>
+	</header>
+</div>
+
+
+
+
+
+
+	<div class="bloco">  
+		<div></div>
+			
+		<h2>Cadastro de contas a pagar</h2>
+
+					<table class="table table-striped" style="margin-top:10px;">
+				<thead>
 						<tr>
 							<th>Emissão</th>
 							<th>Descricao</th>
@@ -167,9 +160,11 @@
 							<th>Vencimento</th>
 							<th>Status</th>
 						</tr>
-					</thead>
+				</thead>
 
 				<tbody>
+					
+<section>
 					<tr ng-repeat="despesa in despesas" ng-class="{marcada: despesa.deletar}">
 						<td><input type="checkbox" name="" ng-model="despesa.deletar"></td>
 						<td>{{despesa.emissao | date:'dd/MM/yyyy' }}</td>				
@@ -182,6 +177,8 @@
 					</tr>
 				</tbody>
 			</table>
+					</section>
+					</section>
 				
 				
 		</section>
