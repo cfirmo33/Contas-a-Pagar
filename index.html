@@ -12,8 +12,6 @@
 		app.controller("AppCAPCtrl", ['$scope', function ($scope) {
 			$scope.appname = "Contas A Pagar";
 			$scope.company = "Contas A Receber";
-			$scope.despesa = {};
-
 			
 			$scope.despesas = [
 				{emissao: new Date('2017-12-03'), descricao: 'Energia Elétrica', valor: 200, vencimento: new Date('2018-01-03'), status_cor:'#90EE90'},
@@ -32,20 +30,18 @@
 			$scope.adicionarDespesa = function(despesa) {
 				$scope.despesas.push(angular.copy(despesa));
 			} 
-
-
 			
-			$scope.temMarcada = function(despesas) {
+			$scope.temMarcada = function (despesas) {
 				return despesas.some(function(despesa) {
 					return despesas.deletar;
 				});
 			}
 			
-			$scope.deletarDespesa = function(despesas) {
-				$scope.despesas = despesas.filter(function(despesa) {
+			$scope.deletarDespesa = function (despesas) {
+				$scope.despesas = despesas.filter(function (despesa) {
 					if (despesa.deletar) return despesa;
 				});
-			}
+			}	
 		}]);
 	</script>
 	
@@ -75,58 +71,66 @@
 			margin-left: auto;
 			padding-bottom: 10px;									
 		}
-		
+		.col-md-4 {
+			margin-right: auto;
+			margin-left: auto;
+		}
 	</style>
 	<title>Sistema de Contas A Pagar</title>
 </head>
 
 <body ng-controller="AppCAPCtrl">  
-	<div class="bloco">  
-		<div ng-include="'header.html'"></div>
+	
+<div class="container">
+	<header ng-include="'header.html'"></header>
+	<section class ="crud">
+		<div class="row">
+			<div class="col-md-4">
+				<label for="emissao_id">Data Emissão:</label>
+				<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao">
+			</div>
 			
-		<h2 class="lead">Cadastro de contas a pagar</h2>
+			<div class="col-md-8">
+				<label for="desc_id">Descricao:</label>
+				<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao">
+			</div>
+			
+			<div class="col-md-12">
+				<label for="categoria_id">Categoria:</label>
+				<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome group by categoria.grupo  for categoria in categorias" id="categoria_id">
+					<option value="">Selecione uma categoria </option>
+				</select>
+			</div>
+			
+			<div class="col-md-4">
+				<label for="val_id">Valor:</label>
+				<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor">
+			</div>
 
-		<main>
-			<section>
-				<div class="row">
-					<div class="col-md-4">
-						<label for="emissao_id">Data Emissão:</label>
-						<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao">
-					</div>
-					
-					<div class="col-md-8">
-						<label for="desc_id">Descricao:</label>
-						<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao">
-					</div>
-					
-					<div class="col-md-12">
-						<label for="categoria_id">Categoria:</label>
-						<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome group by categoria.grupo  for categoria in categorias" id="categoria_id">
-							<option value="">Selecione uma categoria </option>
-						</select>
-					</div>
-					
-					<div class="col-md-4">
-						<label for="val_id">Valor:</label>
-						<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor">
-					</div>
+			<div class="col-md-8">
+				<label for="venc_id">Data Vencimento:</label>
+				<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento">
+			</div>
 
-					<div class="col-md-8">
-						<label for="venc_id">Data Vencimento:</label>
-						<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento">
-					</div>
+			<div class="col-md-4">
+				<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
+			</div>
+		</div>
+		{{despesa}}
 
-					<div class="col-md-4">
-						<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
-					</div>
-				</div>
+		<div class="col-md-4">
+			<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesa)" ng-show="temMarcada(despesa)">Deletar despesa</button>
+		</div>
+	</section>
+</div>
 
-				<div class="col-md-4">
-					<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesa)" ng-show="temMarcada()">Deletar despesa</button>
-				</div>
-				
-				<table class="table table-striped" style="margin-top:10px;">
-					<thead>
+	<div class="bloco">  
+		<div></div>
+			
+		<h2>Cadastro de contas a pagar</h2>
+
+					<table class="table table-striped" style="margin-top:10px;">
+				<thead>
 						<tr>
 							<th>Emissão</th>
 							<th>Descricao</th>
@@ -136,9 +140,11 @@
 							<th>Vencimento</th>
 							<th>Status</th>
 						</tr>
-					</thead>
+				</thead>
 
 				<tbody>
+					
+<section>
 					<tr ng-repeat="despesa in despesas" ng-class="{marcada: despesa.deletar}">
 						<td><input type="checkbox" name="" ng-model="despesa.deletar"></td>
 						<td>{{despesa.emissao | date:'dd/MM/yyyy' }}</td>				
@@ -151,6 +157,10 @@
 					</tr>
 				</tbody>
 			</table>
+					</section>
+					</section>
+				
+				
 		</section>
 	</main>
 
