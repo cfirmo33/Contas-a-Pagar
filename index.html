@@ -83,58 +83,48 @@
 <body ng-controller="AppCAPCtrl">  
 	
 <div class="container">
-	<header ng-include=
-	"'header.html'"
-	>
-		<main>
-			<section class ="crud">
-			<section>
-<div class="row">
-					<div class="col-md-4">
-						<label for="emissao_id">Data Emissão:</label>
-						<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao">
-					</div>
-					
-					<div class="col-md-8">
-						<label for="desc_id">Descricao:</label>
-						<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao">
-					</div>
-					
-					<div class="col-md-12">
-						<label for="categoria_id">Categoria:</label>
-						<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome group by categoria.grupo  for categoria in categorias" id="categoria_id">
-							<option value="">Selecione uma categoria </option>
-						</select>
-					</div>
-					
-					<div class="col-md-4">
-						<label for="val_id">Valor:</label>
-						<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor">
-					</div>
+	<header ng-include="'header.html'"></header>
+	<section class ="crud">
+		<div class="row">
+			<div class="col-md-4">
+				<label for="emissao_id">Data Emissão:</label>
+				<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao">
+			</div>
+			
+			<div class="col-md-8">
+				<label for="desc_id">Descricao:</label>
+				<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao">
+			</div>
+			
+			<div class="col-md-12">
+				<label for="categoria_id">Categoria:</label>
+				<select class="form-control" ng-model="despesa.categoria" ng-options="categoria.nome group by categoria.grupo  for categoria in categorias" id="categoria_id">
+					<option value="">Selecione uma categoria </option>
+				</select>
+			</div>
+			
+			<div class="col-md-4">
+				<label for="val_id">Valor:</label>
+				<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor">
+			</div>
 
-					<div class="col-md-8">
-						<label for="venc_id">Data Vencimento:</label>
-						<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento">
-					</div>
+			<div class="col-md-8">
+				<label for="venc_id">Data Vencimento:</label>
+				<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento">
+			</div>
 
-					<div class="col-md-4">
-						<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
-					</div>
-				</div>
-				{{despesa}}
+			<div class="col-md-4">
+				<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
+			</div>
+		</div>
+		{{despesa}}
 
-				<div class="col-md-4">
-					<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesa)" ng-show="temMarcada()">Deletar despesa</button>
-				</div>
-					</section>
-							<section class="grid">
-
-</section>
-
-		</main>
-		<footer></footer>
-	</header>
+		<div class="col-md-4">
+			<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesa)" ng-show="temMarcada(despesa)">Deletar despesa</button>
+		</div>
+	</section>
 </div>
+
 	<div class="bloco">  
 		<div></div>
 			
