@@ -84,8 +84,36 @@
 </head>
 
 <body ng-controller="AppCAPCtrl">  
+	
+<div class="container">
+	<header ng-include=
+	"'header.html'"
+	>
+		<main>
+			<section class =
+			"crud">
+
+			</section>
+						<section class="grid">
+					
+						</section>
+
+		</main>
+		<footer></footer>
+	</header>
+</div>
+
+
+
+
+
+
+
+
+
+
 	<div class="bloco">  
-		<div ng-include="'header.html'"></div>
+		<div></div>
 			
 		<h2>Cadastro de contas a pagar</h2>
 
@@ -123,12 +151,12 @@
 						<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)">Adicionar nova despesa</button>
 					</div>
 				</div>
+				{{despesa}}
 
 				<div class="col-md-4">
 					<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesa)" ng-show="temMarcada()">Deletar despesa</button>
 				</div>
-				
-				<table class="table table-striped" style="margin-top:10px;">
+						<table class="table table-striped" style="margin-top:10px;">
 					<thead>
 						<tr>
 							<th>Emissão</th>
@@ -154,6 +182,8 @@
 					</tr>
 				</tbody>
 			</table>
+				
+				
 		</section>
 	</main>
 
