@@ -3,11 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.7.8/angular-messages.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<script>
-		var app = angular.module("AppCAP", []);
+		var app = angular.module("AppCAP", ["ngMessages"]);
 		
 		app.controller("AppCAPCtrl", ['$scope', function ($scope) {
 			$scope.appname = "Contas A Pagar";
@@ -80,11 +81,11 @@
 	<section class ="crud">
 		<div class="row">
 			<form name="FormDespesa"></form>
-			<div class="col-md-2">
+			<div class="col-md-8">
 				<label for="emissao_id">Data Emissão:</label>
 				<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao" ng-required="true">
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-12">
 				<label for="desc_id">Descrição:</label>
 				<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao" ng-required="true">
 			</div>
@@ -96,23 +97,30 @@
 				</select>
 			</div>
 			
-			<div class="col-md-8">
+			<div class="col-md-4">
+					
 				<label for="val_id">Valor:</label>
+				<div  style="margin-top: 5px;" class="alert alert-danger">
+						Informe um valor para a despesa.
+						</div>
 				<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor" ng-required="true">
 			</div>
 
-			<div class="col-md-2">
+			<div class="col-md-8">
 				<label for="venc_id">Data Vencimento:</label>
 				<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento" ng-required="true">
 			</div>
+		
 
-			<div class="col-md-4">
+
+			<div class="col-md-2">
 				<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)" ng-disabled="FormDespesa.$invalid">Adicionar nova despesa</button>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-2">
 			<button class="btn btn-danger btn-block" ng-click="deletarDespesa(despesas)"ng-if="temMarcada()">Deletar despesa</button>
 		</div>
+	
 		<section class="grid">
 			<h2>Cadastro de contas a pagar</h2>
 					<table class="table table-striped" style="margin-top:10px;">
