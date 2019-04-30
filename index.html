@@ -11,7 +11,7 @@
 		
 		app.controller("AppCAPCtrl", ['$scope', function ($scope) {
 			$scope.appname = "Contas A Pagar";
-			$scope.company = "Contas A Receber";
+			$scope.company = "Contas A Pagar";
 			
 			$scope.despesas = [
 				{emissao: new Date('2017-12-03'), descricao: 'Energia Elétrica', valor: 200, vencimento: new Date('2018-01-03'), status_cor:'#90EE90'},
@@ -80,12 +80,12 @@
 	<section class ="crud">
 		<div class="row">
 			<form name="FormDespesa"></form>
-			<div class="col-md-4">
+			<div class="col-md-2">
 				<label for="emissao_id">Data Emissão:</label>
 				<input class="form-control" type="text" name="" id="emissao_id" ng-model="despesa.emissao" ng-required="true">
 			</div>
 			<div class="col-md-8">
-				<label for="desc_id">Descricao:</label>
+				<label for="desc_id">Descrição:</label>
 				<input  class="form-control"  type="text" name="" id="desc_id" ng-model="despesa.descricao" ng-required="true">
 			</div>
 			
@@ -96,18 +96,18 @@
 				</select>
 			</div>
 			
-			<div class="col-md-4">
+			<div class="col-md-8">
 				<label for="val_id">Valor:</label>
 				<input  class="form-control"  type="text" name="" id="val_id" ng-model="despesa.valor" ng-required="true">
 			</div>
 
-			<div class="col-md-8">
+			<div class="col-md-2">
 				<label for="venc_id">Data Vencimento:</label>
 				<input  class="form-control"  type="text" name="" id="venc_id" ng-model="despesa.vencimento" ng-required="true">
 			</div>
 
 			<div class="col-md-4">
-				<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)" ng-disabled="!despesa.descricao || !despesa.valor ||  !despesa.vencimento">Adicionar nova despesa</button>
+				<button class="btn btn-primary btn-block" ng-click="adicionarDespesa(despesa)" ng-disabled="FormDespesa.$invalid">Adicionar nova despesa</button>
 			</div>
 		</div>
 		<div class="col-md-4">
@@ -119,7 +119,7 @@
 				<thead>
 						<tr>
 							<th>Emissão</th>
-							<th>Descricao</th>
+							<th>Descrição</th>
 							<th>Categoria</th>
 
 							<th>Valor</th>
